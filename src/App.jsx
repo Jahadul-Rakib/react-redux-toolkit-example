@@ -1,5 +1,6 @@
 import User from "./feature/user-details/userDetails.jsx";
 import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
+import {TailwindPosition} from "./feature/tailwind-practice/TailwindPosition.jsx";
 
 
 function LayoutOne() {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
         element: <LayoutOne/>,
         children: [
             {path: "", element: <User/>},
+            {path: "position", element: <TailwindPosition/>},
         ],
     }
 ]);
