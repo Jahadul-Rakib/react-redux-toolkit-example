@@ -1,13 +1,26 @@
 import User from "./feature/user-details/userDetails.jsx";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {createBrowserRouter, Outlet, RouterProvider} from "react-router-dom";
+
+
+function LayoutOne() {
+    return (
+        <Outlet/>
+    );
+}
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <LayoutOne/>,
+        children: [
+            {path: "", element: <User/>},
+        ],
+    }
+]);
 
 function App() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path={"/"} element={<User/>}></Route>
-            </Routes>
-        </BrowserRouter>
+        <RouterProvider router={router}/>
     )
 }
 
